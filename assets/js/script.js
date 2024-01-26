@@ -37,7 +37,22 @@ function runGame(gameType) {
     }
 }
 
+/**
+ * Checks the answer against the first element
+ * in returned celculateCorrectAnswer array
+ */
 function checkAnswer() {
+    let userAnswer = parseInt(document.getElementById("answer-box").value)
+    let calculatedAnswer = calculateCorrectAnswer()
+    let isCorrect = userAnswer === calculatedAnswer[0]
+
+    if (isCorrect) {
+        alert('You got it right!')
+    } else {
+        alert(`Ahh... you answered ${userAnswer}. The correct answer is ${calculatedAnswer[0]}`)
+    }
+
+    runGame(calculatedAnswer[1])
 
 }
 
